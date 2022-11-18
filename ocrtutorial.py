@@ -21,7 +21,7 @@ def ocrFunction():
   json_output = out.export()
 
   text = out.render()
-  return text
+  return text,json_output
 
 app = FastAPI()
 
@@ -29,11 +29,11 @@ app = FastAPI()
 async def root():
   message = "Success"
   code = 200
-  data = ocrFunction()
+  data, dataJson = ocrFunction()
   return {
       "message": message,
       "status" : code,
       "data" : data
-}
+  }
 
 #ocr tutorial link : https://colab.research.google.com/drive/1ZPQwneM29k9Pf1nyF_q6pNZwylVIK9u_#scrollTo=jO-Ktj_we_9Z
